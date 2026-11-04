@@ -6,13 +6,13 @@
 <!-- 2. Terminal Window Hero -->
 <img src="assets/terminal-hero.svg" alt="AETHER Systems Terminal" width="100%">
 
-<!-- 3. System Architecture Overview Card -->
-<img src="assets/overview-card.svg" alt="System Overview" width="100%">
+<!-- 3. Projects Overview Card -->
+<img src="assets/overview-card.svg" alt="Projects Overview" width="100%">
 
-<!-- 4. Tech Stack with 3D Microprocessor & Categories -->
+<!-- 4. Tech Stack Card -->
 <img src="assets/tech-stack-card.svg" alt="Technical Stack" width="100%">
 
-<!-- 5. 2x2 Projects & Repositories Grid -->
+<!-- 5. Projects & Repositories Grid -->
 <a href="https://github.com/kiran-embedded?tab=repositories">
   <img src="assets/projects-grid.svg" alt="Projects and Repositories" width="100%">
 </a>

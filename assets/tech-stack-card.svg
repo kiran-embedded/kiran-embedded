@@ -96,11 +96,11 @@
     <line x1="15" y1="29" x2="22" y2="33" stroke="#A855F7" stroke-width="1.8" />
   </g>
 
-  <!-- Right Side: 4 Grouped Pill Badges -->
+  <!-- Right Side: 4 Grouped Pill Badges (Simple, Authentic Words) -->
   <g transform="translate(230, 48)">
-    <!-- 1. Languages & Core Runtimes -->
+    <!-- 1. Languages & Tools -->
     <g transform="translate(0, 0)">
-      <text x="0" y="0" class="cat-title">Languages &amp; Core Runtimes</text>
+      <text x="0" y="0" class="cat-title">Languages &amp; Tools</text>
       <g transform="translate(0, 10)">
         <rect x="0" y="0" width="38" height="20" class="badge-bg" fill="#0B1A2E" stroke="#00599C" />
         <text x="19" y="14" class="badge-text" fill="#38BDF8" text-anchor="middle">C</text>
@@ -122,9 +122,9 @@
       </g>
     </g>
 
-    <!-- 2. Frameworks, Mobile & Client UI -->
+    <!-- 2. Mobile Apps & UI -->
     <g transform="translate(0, 48)">
-      <text x="0" y="0" class="cat-title">Frameworks, Mobile &amp; Client UI</text>
+      <text x="0" y="0" class="cat-title">Mobile Apps &amp; UI</text>
       <g transform="translate(0, 10)">
         <rect x="0" y="0" width="62" height="20" class="badge-bg" fill="#0A223B" stroke="#02569B" />
         <text x="31" y="14" class="badge-text" fill="#38BDF8" text-anchor="middle">Flutter</text>
@@ -135,14 +135,14 @@
         <rect x="208" y="0" width="70" height="20" class="badge-bg" fill="#2E200B" stroke="#FFCA28" />
         <text x="243" y="14" class="badge-text" fill="#FDE047" text-anchor="middle">Firebase</text>
 
-        <rect x="284" y="0" width="124" height="20" class="badge-bg" fill="#0A2536" stroke="#00D4FF" />
-        <text x="346" y="14" class="badge-text" fill="#38BDF8" text-anchor="middle">System Interfaces</text>
+        <rect x="284" y="0" width="94" height="20" class="badge-bg" fill="#0A2536" stroke="#00D4FF" />
+        <text x="331" y="14" class="badge-text" fill="#38BDF8" text-anchor="middle">Material UI</text>
       </g>
     </g>
 
-    <!-- 3. Kernel & System Architecture -->
+    <!-- 3. Linux Kernel & Drivers -->
     <g transform="translate(0, 96)">
-      <text x="0" y="0" class="cat-title">Kernel &amp; System Architecture</text>
+      <text x="0" y="0" class="cat-title">Linux Kernel &amp; Drivers</text>
       <g transform="translate(0, 10)">
         <rect x="0" y="0" width="138" height="20" class="badge-bg" fill="#292209" stroke="#FCC624" />
         <text x="69" y="14" class="badge-text" fill="#FDE047" text-anchor="middle">Linux Kernel (4.14 / 5.x)</text>
@@ -158,9 +158,9 @@
       </g>
     </g>
 
-    <!-- 4. Hardware, Microcontrollers & Buses -->
+    <!-- 4. Microcontrollers & Hardware -->
     <g transform="translate(0, 144)">
-      <text x="0" y="0" class="cat-title">Hardware, Microcontrollers &amp; Buses</text>
+      <text x="0" y="0" class="cat-title">Microcontrollers &amp; Hardware</text>
       <g transform="translate(0, 10)">
         <rect x="0" y="0" width="90" height="20" class="badge-bg" fill="#082426" stroke="#00979D" />
         <text x="45" y="14" class="badge-text" fill="#2DD4BF" text-anchor="middle">Arduino Uno</text>
