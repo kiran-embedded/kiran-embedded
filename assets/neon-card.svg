@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 250" width="100%" height="100%">
+  <defs>
+    <!-- Moving neon gradient -->
+    <linearGradient id="neonGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF" />
+      <stop offset="35%" stop-color="#8B5CF6" />
+      <stop offset="70%" stop-color="#00FFCC" />
+      <stop offset="100%" stop-color="#00D4FF" />
+    </linearGradient>
+
+    <!-- Subtle circuit grid pattern -->
+    <pattern id="circuitGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#161F30" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="0" cy="0" r="1.5" fill="#00D4FF" opacity="0.4" />
+    </pattern>
+
+    <!-- Blur filter for neon bloom -->
+    <filter id="neonBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <radialGradient id="ambientGlow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#080B11" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <style>
+    @keyframes moveNeonEdge {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -2280; }
+    }
+    @keyframes statusBlink {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px #10B981); }
+      50% { opacity: 0.4; filter: none; }
+    }
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; }
+    }
+
+    .card-base {
+      fill: #090D16;
+      stroke: #182234;
+      stroke-width: 2;
+      rx: 16px;
+    }
+    .neon-moving-border {
+      fill: none;
+      stroke: url(#neonGlowGrad);
+      stroke-width: 3.2;
+      rx: 16px;
+      stroke-dasharray: 260 2020;
+      animation: moveNeonEdge 5.5s linear infinite;
+      filter: url(#neonBlur);
+    }
+    .status-orb {
+      animation: statusBlink 2.2s ease-in-out infinite;
+    }
+    .tech-pill {
+      fill: #101624;
+      stroke: #1F2B42;
+      stroke-width: 1.2;
+      rx: 10px;
+    }
+    .tech-pill-active {
+      fill: #121A2C;
+      stroke: #00D4FF;
+      stroke-width: 1.2;
+      rx: 10px;
+    }
+    .text-title {
+      font-family: 'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+      font-size: 13.5px;
+      font-weight: 700;
+      fill: #E2E8F0;
+      letter-spacing: 1.8px;
+    }
+    .text-sub {
+      font-family: 'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      fill: #64748B;
+      letter-spacing: 1px;
+    }
+    .col-header {
+      font-family: 'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+    .col-body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 11.5px;
+      fill: #94A3B8;
+      line-height: 1.5;
+    }
+    .col-body-sub {
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      fill: #00D4FF;
+    }
+  </style>
+
+  <!-- Solid card background with subtle grid -->
+  <rect x="6" y="6" width="908" height="238" class="card-base" />
+  <rect x="6" y="6" width="908" height="238" fill="url(#circuitGrid)" rx="16" />
+  <rect x="6" y="6" width="908" height="238" fill="url(#ambientGlow)" rx="16" />
+
+  <!-- Animated Neon Edge Beam -->
+  <rect x="6" y="6" width="908" height="238" class="neon-moving-border" />
+
+  <!-- Header Section -->
+  <g transform="translate(28, 36)">
+    <!-- Pulsing Live Indicator -->
+    <circle cx="6" cy="0" r="5" fill="#10B981" class="status-orb" />
+    <circle cx="6" cy="0" r="10" fill="#10B981" opacity="0.2" class="status-orb" />
+    <text x="24" y="4" class="text-title">KIRAN EMBEDDED // REAL-TIME SYSTEM ARCHITECTURE</text>
+    <text x="730" y="4" class="text-sub">LOC: THX-0487</text>
+  </g>
+
+  <!-- Horizontal divider inside card -->
+  <line x1="28" y1="56" x2="892" y2="56" stroke="#1E2A3E" stroke-width="1.2" />
+
+  <!-- 4 Feature Columns -->
+  <!-- Column 1: Ring-0 Kernel -->
+  <g transform="translate(28, 72)">
+    <rect x="0" y="0" width="202" height="152" class="tech-pill" />
+    <path d="M 12 18 L 12 28" stroke="#00D4FF" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="24" fill="#00D4FF" class="col-header">RING-0 KERNEL</text>
+    <text x="14" y="52" class="col-body">• Custom Sysfs Nodes</text>
+    <text x="14" y="74" class="col-body">• AMOLED DC Dimming</text>
+    <text x="14" y="96" class="col-body">• Bypass Charging (0mA)</text>
+    <text x="14" y="118" class="col-body">• BadUSB Hub Cutoff</text>
+    <text x="14" y="140" class="col-body-sub">ARCH: Qualcomm SM6150</text>
+  </g>
+
+  <!-- Column 2: Embedded & Microcontrollers -->
+  <g transform="translate(248, 72)">
+    <rect x="0" y="0" width="202" height="152" class="tech-pill" />
+    <path d="M 12 18 L 12 28" stroke="#10B981" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="24" fill="#10B981" class="col-header">EMBEDDED &amp; IOT</text>
+    <text x="14" y="52" class="col-body">• ESP32 &amp; Arduino Uno</text>
+    <text x="14" y="74" class="col-body">• I2C / SPI / UART Buses</text>
+    <text x="14" y="96" class="col-body">• FreeRTOS Task Loops</text>
+    <text x="14" y="118" class="col-body">• Low-Power Deep Sleep</text>
+    <text x="14" y="140" fill="#10B981" class="col-body-sub">FIRMWARE: C / C++ / AVR</text>
+  </g>
+
+  <!-- Column 3: Mobile & Cross-Platform UI -->
+  <g transform="translate(468, 72)">
+    <rect x="0" y="0" width="202" height="152" class="tech-pill" />
+    <path d="M 12 18 L 12 28" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="24" fill="#38BDF8" class="col-header">MOBILE &amp; DASHBOARD</text>
+    <text x="14" y="52" class="col-body">• Flutter &amp; Dart Apps</text>
+    <text x="14" y="74" class="col-body">• Android System Services</text>
+    <text x="14" y="96" class="col-body">• Native Quick Settings</text>
+    <text x="14" y="118" class="col-body">• Direct Sysfs Companion</text>
+    <text x="14" y="140" fill="#38BDF8" class="col-body-sub">FRAMEWORK: Flutter / AOSP</text>
+  </g>
+
+  <!-- Column 4: Acoustic & Hardware DSP -->
+  <g transform="translate(688, 72)">
+    <rect x="0" y="0" width="204" height="152" class="tech-pill" />
+    <path d="M 12 18 L 12 28" stroke="#A855F7" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="24" fill="#A855F7" class="col-header">AUDIO &amp; SIGNAL DSP</text>
+    <text x="14" y="52" class="col-body">• Microphone HPF Filters</text>
+    <text x="14" y="74" class="col-body">• 40ms Fast Unmute Ramp</text>
+    <text x="14" y="96" class="col-body">• Direct Hi-Fi Codec Path</text>
+    <text x="14" y="118" class="col-body">• Real-Time Speech Focus</text>
+    <text x="14" y="140" fill="#A855F7" class="col-body-sub">STACK: ALSA / DSP / HAL</text>
+  </g>
+</svg>
