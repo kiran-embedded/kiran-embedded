@@ -1,19 +1,15 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:090D16,50:121A2C,100:00D4FF&height=150&section=header&text=KIRAN%20EMBEDDED&fontSize=40&fontAlignY=38&fontColor=FFFFFF&desc=Linux%20Kernel%20%E2%80%A2%20Embedded%20Firmware%20%E2%80%A2%20Flutter%20%26%20IoT%20Systems&descFontSize=14&descAlignY=62&descColor=00D4FF" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:060912,40:FF1744,70:00FF66,100:00E5FF&height=160&section=header&text=KIRAN%20EMBEDDED&fontSize=42&fontAlignY=36&fontColor=FFFFFF&desc=Linux%20Kernel%20%E2%80%A2%20Embedded%20Systems%20%E2%80%A2%20Flutter%20%26%20Firmware%20Lab&descFontSize=14&descAlignY=62&descColor=00FF66" width="100%"/>
 </p>
 
+<!-- Pixel LED Moving Border Hardware Card -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kiran-embedded/kiran-embedded/main/assets/banner.png" alt="Kiran Embedded Cyber Banner" width="100%" style="border-radius: 14px;">
-</p>
-
-<!-- Moving Neon Edge Architecture Card -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kiran-embedded/kiran-embedded/main/assets/neon-card.svg" alt="Active System Architecture" width="100%">
+  <img src="https://raw.githubusercontent.com/kiran-embedded/kiran-embedded/main/assets/neon-card.svg" alt="Active System Architecture & Hardware Lab" width="100%">
 </p>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&duration=3000&pause=1000&color=00D4FF&center=true&vCenter=true&multiline=false&width=800&height=45&lines=Linux+Kernel+%26+Ring-0+Driver+Development;Embedded+Systems%2C+ESP32+%26+Arduino+Uno+Firmware;Cross-Platform+Flutter+%26+Android+SystemUI+Dashboards;Real-Time+Audio+DSP%2C+ALSA+Routing+%26+Hardware+Filters" alt="Typing Animation" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=19&duration=3000&pause=1000&color=00FF66&center=true&vCenter=true&multiline=false&width=840&height=45&lines=Embedded+Systems%2C+ESP32+%26+Arduino+Uno+Hardware+Engineering;Linux+Kernel+%26+Ring-0+Driver+Development;Cross-Platform+Flutter+%26+Android+SystemUI+Dashboards;Real-Time+Audio+DSP%2C+ALSA+Routing+%26+Hardware+Filters" alt="Typing Animation" />
   </a>
 </p>
 
@@ -22,10 +18,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/kiran-embedded?tab=repositories"><img src="https://img.shields.io/badge/Repositories-23-00D4FF?style=for-the-badge&logo=github&logoColor=white" alt="Repositories"></a>
-  <a href="https://github.com/kiran-embedded/AETHER-Kernel-mojito"><img src="https://img.shields.io/badge/Kernel-AETHER_v1.8-8B5CF6?style=for-the-badge&logo=linux&logoColor=white" alt="Kernel"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Framework-Flutter_&_Dart-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Hardware-ESP32_/_Arduino_Uno-00979D?style=for-the-badge&logo=arduino&logoColor=white" alt="Hardware"></a>
+  <a href="https://github.com/kiran-embedded?tab=repositories"><img src="https://img.shields.io/badge/Repositories-23-00FF66?style=for-the-badge&logo=github&logoColor=black" alt="Repositories"></a>
+  <a href="https://github.com/kiran-embedded/AETHER-Kernel-mojito"><img src="https://img.shields.io/badge/Kernel-AETHER_v1.8-FF1744?style=for-the-badge&logo=linux&logoColor=white" alt="Kernel"></a>
+  <a href="#"><img src="https://img.shields.io/badge/UI-Flutter_&_Dart-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Microcontrollers-ESP32_/_Arduino_Uno-00979D?style=for-the-badge&logo=arduino&logoColor=white" alt="Hardware"></a>
   <a href="#"><img src="https://img.shields.io/badge/Location-Thrissur%2C_India-10B981?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Location"></a>
 </p>
 
@@ -33,7 +29,7 @@
 
 ### ⚡ Overview
 
-I design and build low-level systems spanning **Linux kernel drivers**, **microcontroller firmware**, and **cross-platform client interfaces**:
+I build low-level systems spanning **Linux kernel drivers**, **microcontroller firmware**, and **cross-platform client interfaces**:
 
 * 🐧 **Kernel Engineering:** Author and maintainer of [**AETHER Kernel**](https://github.com/kiran-embedded/AETHER-Kernel-mojito) for Qualcomm SM6150 (Snapdragon 678), implementing hardware AMOLED DC Dimming, Sunlight HBM, AOD backlight clamping, BadUSB data isolation, and rootless sysfs companion integration.
 * 🔌 **Embedded & Microcontrollers:** Firmware development for **ESP32**, **Arduino Uno**, and **ARM Cortex** platforms utilizing FreeRTOS tasks, hardware interrupts, power management, and communication buses (I2C, SPI, UART).
@@ -158,7 +154,7 @@ I design and build low-level systems spanning **Linux kernel drivers**, **microc
 ### 📊 Activity & Statistics
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=kiran-embedded&theme=tokyonight&hide_border=true&background=090D16&ring=00D4FF&fire=00D4FF&currStreakNum=00D4FF&sideNums=E2E8F0&sideLabels=94A3B8&dates=64748B" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com?user=kiran-embedded&theme=tokyonight&hide_border=true&background=060912&ring=00FF66&fire=FF1744&currStreakNum=00FF66&sideNums=E2E8F0&sideLabels=94A3B8&dates=64748B" alt="GitHub Streak" />
 </p>
 
 <p align="center">
@@ -168,5 +164,5 @@ I design and build low-level systems spanning **Linux kernel drivers**, **microc
 ---
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D4FF,50:121A2C,100:090D16&height=100&section=footer" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00FF66,40:00E5FF,70:FF1744,100:060912&height=100&section=footer" width="100%"/>
 </p>

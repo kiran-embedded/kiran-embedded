@@ -1,22 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 250" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 290" width="100%" height="100%">
   <defs>
-    <!-- Moving neon gradient -->
-    <linearGradient id="neonGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00D4FF" />
-      <stop offset="35%" stop-color="#8B5CF6" />
-      <stop offset="70%" stop-color="#00FFCC" />
-      <stop offset="100%" stop-color="#00D4FF" />
+    <!-- Multi-stop Neon Red to Neon Green LED Chaser Gradient -->
+    <linearGradient id="pixelLedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF1744">
+        <animate attributeName="stop-color" values="#FF1744;#00FF66;#00E5FF;#FF1744" dur="7s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="30%" stop-color="#00FF66">
+        <animate attributeName="stop-color" values="#00FF66;#00E5FF;#FF1744;#00FF66" dur="7s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="65%" stop-color="#00E5FF">
+        <animate attributeName="stop-color" values="#00E5FF;#FF1744;#00FF66;#00E5FF" dur="7s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#FF1744">
+        <animate attributeName="stop-color" values="#FF1744;#00FF66;#00E5FF;#FF1744" dur="7s" repeatCount="indefinite" />
+      </stop>
     </linearGradient>
 
-    <!-- Subtle circuit grid pattern -->
-    <pattern id="circuitGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#161F30" stroke-width="0.8" opacity="0.6"/>
-      <circle cx="0" cy="0" r="1.5" fill="#00D4FF" opacity="0.4" />
+    <!-- Circuit Mesh Pattern -->
+    <pattern id="pcbMesh" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#101726" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="0" cy="0" r="1.2" fill="#00FF66" opacity="0.35" />
     </pattern>
 
-    <!-- Blur filter for neon bloom -->
-    <filter id="neonBlur" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+    <!-- Neon Glow & Bloom Filter -->
+    <filter id="pixelLedGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="coloredBlur"/>
@@ -24,73 +32,69 @@
       </feMerge>
     </filter>
 
-    <radialGradient id="ambientGlow" cx="50%" cy="0%" r="80%">
-      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.12" />
-      <stop offset="100%" stop-color="#080B11" stop-opacity="0" />
+    <radialGradient id="cardAmbient" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0.08" />
+      <stop offset="50%" stop-color="#FF1744" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#050811" stop-opacity="0" />
     </radialGradient>
   </defs>
 
   <style>
-    @keyframes moveNeonEdge {
+    @keyframes chasePixelLeds {
       0% { stroke-dashoffset: 0; }
-      100% { stroke-dashoffset: -2280; }
+      100% { stroke-dashoffset: -2420; }
     }
-    @keyframes statusBlink {
-      0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px #10B981); }
-      50% { opacity: 0.4; filter: none; }
+    @keyframes blinkRedLed {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 7px #FF1744); }
+      50% { opacity: 0.3; filter: none; }
     }
-    @keyframes subtlePulse {
-      0%, 100% { opacity: 0.85; }
-      50% { opacity: 1; }
+    @keyframes blinkGreenLed {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 7px #00FF66); }
+      50% { opacity: 0.35; filter: none; }
     }
 
-    .card-base {
-      fill: #090D16;
-      stroke: #182234;
-      stroke-width: 2;
+    .card-bg {
+      fill: #060912;
       rx: 16px;
     }
-    .neon-moving-border {
+    .led-track {
       fill: none;
-      stroke: url(#neonGlowGrad);
+      stroke: #121929;
       stroke-width: 3.2;
+      stroke-dasharray: 10 8;
       rx: 16px;
-      stroke-dasharray: 260 2020;
-      animation: moveNeonEdge 5.5s linear infinite;
-      filter: url(#neonBlur);
     }
-    .status-orb {
-      animation: statusBlink 2.2s ease-in-out infinite;
+    .led-moving-beam {
+      fill: none;
+      stroke: url(#pixelLedGrad);
+      stroke-width: 3.5;
+      stroke-dasharray: 10 8;
+      rx: 16px;
+      animation: chasePixelLeds 8s linear infinite;
+      filter: url(#pixelLedGlow);
     }
-    .tech-pill {
-      fill: #101624;
-      stroke: #1F2B42;
-      stroke-width: 1.2;
-      rx: 10px;
-    }
-    .tech-pill-active {
-      fill: #121A2C;
-      stroke: #00D4FF;
+    .panel-box {
+      fill: #0A0F1D;
+      stroke: #162034;
       stroke-width: 1.2;
       rx: 10px;
     }
     .text-title {
-      font-family: 'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
-      font-size: 13.5px;
+      font-family: 'Fira Code', monospace, -apple-system, sans-serif;
+      font-size: 13px;
       font-weight: 700;
       fill: #E2E8F0;
-      letter-spacing: 1.8px;
+      letter-spacing: 2px;
     }
-    .text-sub {
-      font-family: 'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+    .text-meta {
+      font-family: 'Fira Code', monospace;
       font-size: 11px;
-      font-weight: 500;
       fill: #64748B;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
     }
     .col-header {
-      font-family: 'Fira Code', -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
-      font-size: 12px;
+      font-family: 'Fira Code', monospace;
+      font-size: 11.5px;
       font-weight: 700;
       letter-spacing: 1.2px;
     }
@@ -98,81 +102,95 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 11.5px;
       fill: #94A3B8;
-      line-height: 1.5;
     }
-    .col-body-sub {
+    .col-tag {
       font-family: 'Fira Code', monospace;
       font-size: 10px;
-      fill: #00D4FF;
+    }
+    .ribbon-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 10.5px;
+      fill: #64748B;
+      letter-spacing: 1px;
     }
   </style>
 
-  <!-- Solid card background with subtle grid -->
-  <rect x="6" y="6" width="908" height="238" class="card-base" />
-  <rect x="6" y="6" width="908" height="238" fill="url(#circuitGrid)" rx="16" />
-  <rect x="6" y="6" width="908" height="238" fill="url(#ambientGlow)" rx="16" />
+  <!-- Solid AMOLED card background with PCB mesh -->
+  <rect x="6" y="6" width="908" height="278" class="card-bg" />
+  <rect x="6" y="6" width="908" height="278" fill="url(#pcbMesh)" rx="16" />
+  <rect x="6" y="6" width="908" height="278" fill="url(#cardAmbient)" rx="16" />
 
-  <!-- Animated Neon Edge Beam -->
-  <rect x="6" y="6" width="908" height="238" class="neon-moving-border" />
+  <!-- Base LED strip track (unlit pixel diodes) -->
+  <rect x="6" y="6" width="908" height="278" class="led-track" />
 
-  <!-- Header Section -->
-  <g transform="translate(28, 36)">
-    <!-- Pulsing Live Indicator -->
-    <circle cx="6" cy="0" r="5" fill="#10B981" class="status-orb" />
-    <circle cx="6" cy="0" r="10" fill="#10B981" opacity="0.2" class="status-orb" />
-    <text x="24" y="4" class="text-title">KIRAN EMBEDDED // REAL-TIME SYSTEM ARCHITECTURE</text>
-    <text x="730" y="4" class="text-sub">LOC: THX-0487</text>
+  <!-- Active Neon Red & Neon Green Moving Pixel LEDs -->
+  <rect x="6" y="6" width="908" height="278" class="led-moving-beam" />
+
+  <!-- Top Header Bar -->
+  <g transform="translate(28, 34)">
+    <circle cx="5" cy="0" r="4.5" fill="#FF1744" style="animation: blinkRedLed 2s ease-in-out infinite;" />
+    <circle cx="20" cy="0" r="4.5" fill="#00FF66" style="animation: blinkGreenLed 2s ease-in-out infinite 0.7s;" />
+    <text x="36" y="4" class="text-title">KIRAN EMBEDDED // LOW-LEVEL SYSTEMS &amp; FIRMWARE LAB</text>
+    <text x="690" y="4" class="text-meta">AVR • ARM64 • LINUX</text>
   </g>
 
-  <!-- Horizontal divider inside card -->
-  <line x1="28" y1="56" x2="892" y2="56" stroke="#1E2A3E" stroke-width="1.2" />
+  <line x1="28" y1="52" x2="892" y2="52" stroke="#162238" stroke-width="1.2" />
 
-  <!-- 4 Feature Columns -->
-  <!-- Column 1: Ring-0 Kernel -->
-  <g transform="translate(28, 72)">
-    <rect x="0" y="0" width="202" height="152" class="tech-pill" />
-    <path d="M 12 18 L 12 28" stroke="#00D4FF" stroke-width="3" stroke-linecap="round" />
-    <text x="22" y="24" fill="#00D4FF" class="col-header">RING-0 KERNEL</text>
-    <text x="14" y="52" class="col-body">• Custom Sysfs Nodes</text>
-    <text x="14" y="74" class="col-body">• AMOLED DC Dimming</text>
-    <text x="14" y="96" class="col-body">• Bypass Charging (0mA)</text>
-    <text x="14" y="118" class="col-body">• BadUSB Hub Cutoff</text>
-    <text x="14" y="140" class="col-body-sub">ARCH: Qualcomm SM6150</text>
+  <!-- 4 Architecture Domains -->
+  <!-- 1. Linux Kernel (Neon Red Accent) -->
+  <g transform="translate(28, 66)">
+    <rect x="0" y="0" width="202" height="162" class="panel-box" />
+    <path d="M 12 16 L 12 26" stroke="#FF1744" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="22" fill="#FF1744" class="col-header">LINUX KERNEL</text>
+    <text x="14" y="50" class="col-body">• Custom Sysfs Nodes</text>
+    <text x="14" y="72" class="col-body">• AMOLED DC Dimming</text>
+    <text x="14" y="94" class="col-body">• Bypass Charging (0mA)</text>
+    <text x="14" y="116" class="col-body">• BadUSB Hub Cutoff</text>
+    <text x="14" y="146" fill="#FF1744" class="col-tag">ARCH: Qualcomm SM6150</text>
   </g>
 
-  <!-- Column 2: Embedded & Microcontrollers -->
-  <g transform="translate(248, 72)">
-    <rect x="0" y="0" width="202" height="152" class="tech-pill" />
-    <path d="M 12 18 L 12 28" stroke="#10B981" stroke-width="3" stroke-linecap="round" />
-    <text x="22" y="24" fill="#10B981" class="col-header">EMBEDDED &amp; IOT</text>
-    <text x="14" y="52" class="col-body">• ESP32 &amp; Arduino Uno</text>
-    <text x="14" y="74" class="col-body">• I2C / SPI / UART Buses</text>
-    <text x="14" y="96" class="col-body">• FreeRTOS Task Loops</text>
-    <text x="14" y="118" class="col-body">• Low-Power Deep Sleep</text>
-    <text x="14" y="140" fill="#10B981" class="col-body-sub">FIRMWARE: C / C++ / AVR</text>
+  <!-- 2. Embedded & IoT (Neon Green Accent) -->
+  <g transform="translate(248, 66)">
+    <rect x="0" y="0" width="202" height="162" class="panel-box" />
+    <path d="M 12 16 L 12 26" stroke="#00FF66" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="22" fill="#00FF66" class="col-header">EMBEDDED &amp; IOT</text>
+    <text x="14" y="50" class="col-body">• ESP32 &amp; Arduino Uno</text>
+    <text x="14" y="72" class="col-body">• I2C / SPI / UART Buses</text>
+    <text x="14" y="94" class="col-body">• FreeRTOS Task Loops</text>
+    <text x="14" y="116" class="col-body">• Timers &amp; Watchdogs</text>
+    <text x="14" y="146" fill="#00FF66" class="col-tag">HW: AVR / Xtensa / ARM</text>
   </g>
 
-  <!-- Column 3: Mobile & Cross-Platform UI -->
-  <g transform="translate(468, 72)">
-    <rect x="0" y="0" width="202" height="152" class="tech-pill" />
-    <path d="M 12 18 L 12 28" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
-    <text x="22" y="24" fill="#38BDF8" class="col-header">MOBILE &amp; DASHBOARD</text>
-    <text x="14" y="52" class="col-body">• Flutter &amp; Dart Apps</text>
-    <text x="14" y="74" class="col-body">• Android System Services</text>
-    <text x="14" y="96" class="col-body">• Native Quick Settings</text>
-    <text x="14" y="118" class="col-body">• Direct Sysfs Companion</text>
-    <text x="14" y="140" fill="#38BDF8" class="col-body-sub">FRAMEWORK: Flutter / AOSP</text>
+  <!-- 3. Flutter & Client Mobile UI (Electric Cyan Accent) -->
+  <g transform="translate(468, 66)">
+    <rect x="0" y="0" width="202" height="162" class="panel-box" />
+    <path d="M 12 16 L 12 26" stroke="#00E5FF" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="22" fill="#00E5FF" class="col-header">FLUTTER &amp; CLIENT</text>
+    <text x="14" y="50" class="col-body">• Flutter &amp; Dart Apps</text>
+    <text x="14" y="72" class="col-body">• Android System Services</text>
+    <text x="14" y="94" class="col-body">• Native Quick Settings</text>
+    <text x="14" y="116" class="col-body">• Hardware Telemetry Sync</text>
+    <text x="14" y="146" fill="#00E5FF" class="col-tag">STACK: Flutter / Android</text>
   </g>
 
-  <!-- Column 4: Acoustic & Hardware DSP -->
-  <g transform="translate(688, 72)">
-    <rect x="0" y="0" width="204" height="152" class="tech-pill" />
-    <path d="M 12 18 L 12 28" stroke="#A855F7" stroke-width="3" stroke-linecap="round" />
-    <text x="22" y="24" fill="#A855F7" class="col-header">AUDIO &amp; SIGNAL DSP</text>
-    <text x="14" y="52" class="col-body">• Microphone HPF Filters</text>
-    <text x="14" y="74" class="col-body">• 40ms Fast Unmute Ramp</text>
-    <text x="14" y="96" class="col-body">• Direct Hi-Fi Codec Path</text>
-    <text x="14" y="118" class="col-body">• Real-Time Speech Focus</text>
-    <text x="14" y="140" fill="#A855F7" class="col-body-sub">STACK: ALSA / DSP / HAL</text>
+  <!-- 4. Audio & Signal DSP (Electric Violet Accent) -->
+  <g transform="translate(688, 66)">
+    <rect x="0" y="0" width="204" height="162" class="panel-box" />
+    <path d="M 12 16 L 12 26" stroke="#A855F7" stroke-width="3" stroke-linecap="round" />
+    <text x="22" y="22" fill="#A855F7" class="col-header">AUDIO &amp; SIGNAL DSP</text>
+    <text x="14" y="50" class="col-body">• Microphone HPF Filters</text>
+    <text x="14" y="72" class="col-body">• 40ms Fast Unmute Ramp</text>
+    <text x="14" y="94" class="col-body">• Direct Hi-Fi Codec Path</text>
+    <text x="14" y="116" class="col-body">• Real-Time Speech Focus</text>
+    <text x="14" y="146" fill="#A855F7" class="col-tag">AUDIO: ALSA / DSP / HAL</text>
+  </g>
+
+  <!-- Bottom Hardware Status Ribbon -->
+  <g transform="translate(28, 260)">
+    <circle cx="4" cy="-4" r="3" fill="#00FF66" />
+    <text x="14" y="0" class="ribbon-text">STATUS: ACTIVE</text>
+    <text x="160" y="0" class="ribbon-text">KERNEL: 4.14.357</text>
+    <text x="320" y="0" class="ribbon-text">DEVICES: ESP32 • ARDUINO UNO • SM6150</text>
+    <text x="740" y="0" class="ribbon-text">BUILD: CLEAN (NO DEBUG)</text>
   </g>
 </svg>
