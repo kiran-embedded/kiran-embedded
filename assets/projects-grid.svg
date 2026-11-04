@@ -7,7 +7,6 @@
       <stop offset="100%" stop-color="#1A1838" stop-opacity="0.2" />
     </linearGradient>
 
-    <!-- Subcard Border Gradient -->
     <linearGradient id="subcardBorder" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#3B2A6B" />
       <stop offset="100%" stop-color="#1A1538" />
@@ -32,7 +31,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 11.5px;
       font-weight: 600;
-      fill: #A855F7;
+      fill: #C084FC;
     }
     .subcard {
       fill: #0E1224;
@@ -49,7 +48,7 @@
     .proj-desc {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 10.5px;
-      fill: #94A3B8;
+      fill: #CBD5E1;
     }
     .tag-bg {
       fill: #141B33;
@@ -76,10 +75,10 @@
       fill: #C084FC;
     }
     .star-text {
-      font-family: 'Fira Code', monospace;
+      font-family: 'Fira Code', 'SF Mono', monospace;
       font-size: 10px;
       font-weight: 600;
-      fill: #CBD5E1;
+      fill: #E2E8F0;
     }
   </style>
 
@@ -95,54 +94,44 @@
     <text x="866" y="5" text-anchor="end" class="head-link">View All Repositories →</text>
   </g>
 
-  <!-- 2x2 Grid of Projects -->
+  <!-- 2x2 Grid of Real Projects -->
   <!-- 1. Top-Left: AETHER Kernel -->
   <g transform="translate(24, 50)">
     <rect x="0" y="0" width="424" height="88" class="subcard" />
-    <!-- Icon Container -->
     <rect x="12" y="14" width="30" height="30" rx="6" fill="#1A1538" stroke="#3B2A6B" stroke-width="1" />
     <text x="27" y="33" font-size="14" text-anchor="middle">⚡</text>
 
-    <!-- Title & Badge -->
     <text x="50" y="27" class="proj-title">AETHER Kernel</text>
     <rect x="156" y="16" width="56" height="15" class="feat-bg" />
     <text x="184" y="27" class="feat-text" text-anchor="middle">Featured</text>
 
-    <!-- Subtitle -->
-    <text x="50" y="44" class="proj-desc">Linux Kernel Subsystem for Qualcomm SM6150 (Redmi Note 10)</text>
+    <text x="50" y="44" class="proj-desc">Xiaomi Redmi Note 10 (mojito / SM6150) — Android 16/17</text>
 
-    <!-- Tags & Star Count -->
     <g transform="translate(12, 60)">
-      <rect x="0" y="0" width="44" height="18" class="tag-bg" />
-      <text x="22" y="12" class="tag-text" text-anchor="middle">Linux</text>
+      <rect x="0" y="0" width="32" height="18" class="tag-bg" />
+      <text x="16" y="12" class="tag-text" text-anchor="middle">C</text>
 
-      <rect x="48" y="0" width="50" height="18" class="tag-bg" />
-      <text x="73" y="12" class="tag-text" text-anchor="middle">Kernel</text>
+      <rect x="36" y="0" width="50" height="18" class="tag-bg" />
+      <text x="61" y="12" class="tag-text" text-anchor="middle">Kernel</text>
 
-      <rect x="102" y="0" width="68" height="18" class="tag-bg" />
-      <text x="136" y="12" class="tag-text" text-anchor="middle">Qualcomm</text>
+      <rect x="90" y="0" width="68" height="18" class="tag-bg" />
+      <text x="124" y="12" class="tag-text" text-anchor="middle">Qualcomm</text>
 
-      <!-- Star Count -->
-      <g transform="translate(365, 12)">
-        <text x="0" y="0" class="star-text">⭐ 22</text>
+      <g transform="translate(375, 12)">
+        <text x="0" y="0" class="star-text">⭐ 1</text>
       </g>
     </g>
   </g>
 
-  <!-- 2. Top-Right: Flutter & Cross-Platform UI -->
+  <!-- 2. Top-Right: ESP32 Smart Light -->
   <g transform="translate(472, 50)">
     <rect x="0" y="0" width="424" height="88" class="subcard" />
-    <!-- Icon Container -->
     <rect x="12" y="14" width="30" height="30" rx="6" fill="#0E1E38" stroke="#1D3E6B" stroke-width="1" />
-    <text x="27" y="33" font-size="14" text-anchor="middle">📱</text>
+    <text x="27" y="33" font-size="14" text-anchor="middle">💡</text>
 
-    <!-- Title -->
-    <text x="50" y="27" class="proj-title">Flutter &amp; Cross-Platform UI</text>
+    <text x="50" y="27" class="proj-title">ESP32 Smart Light</text>
+    <text x="50" y="44" class="proj-desc">Cloud-based ESP32 IoT app with real-time Firebase telemetry</text>
 
-    <!-- Subtitle -->
-    <text x="50" y="44" class="proj-desc">Responsive Hardware Telemetry &amp; Control Dashboards</text>
-
-    <!-- Tags & Star Count -->
     <g transform="translate(12, 60)">
       <rect x="0" y="0" width="52" height="18" class="tag-bg" />
       <text x="26" y="12" class="tag-text" text-anchor="middle">Flutter</text>
@@ -154,54 +143,54 @@
       <text x="130" y="12" class="tag-text" text-anchor="middle">Firebase</text>
 
       <g transform="translate(372, 12)">
-        <text x="0" y="0" class="star-text">⭐ 6</text>
+        <text x="0" y="0" class="star-text">⭐ 2</text>
       </g>
     </g>
   </g>
 
-  <!-- 3. Bottom-Left: Embedded IoT & Firmware -->
+  <!-- 3. Bottom-Left: Nebula OS -->
   <g transform="translate(24, 146)">
     <rect x="0" y="0" width="424" height="88" class="subcard" />
     <rect x="12" y="14" width="30" height="30" rx="6" fill="#132B25" stroke="#1C5242" stroke-width="1" />
     <text x="27" y="33" font-size="14" text-anchor="middle">🔌</text>
 
-    <text x="50" y="27" class="proj-title">Embedded IoT &amp; Firmware</text>
-    <text x="50" y="44" class="proj-desc">ESP32 &amp; Arduino Uno Hardware Systems</text>
+    <text x="50" y="27" class="proj-title">Nebula OS</text>
+    <text x="50" y="44" class="proj-desc">Adaptive Arduino Uno firmware with smart thermals &amp; EEPROM</text>
 
     <g transform="translate(12, 60)">
-      <rect x="0" y="0" width="52" height="18" class="tag-bg" />
-      <text x="26" y="12" class="tag-text" text-anchor="middle">ESP32</text>
+      <rect x="0" y="0" width="40" height="18" class="tag-bg" />
+      <text x="20" y="12" class="tag-text" text-anchor="middle">C++</text>
 
-      <rect x="56" y="0" width="56" height="18" class="tag-bg" />
-      <text x="84" y="12" class="tag-text" text-anchor="middle">Arduino</text>
+      <rect x="44" y="0" width="54" height="18" class="tag-bg" />
+      <text x="71" y="12" class="tag-text" text-anchor="middle">Arduino</text>
 
-      <rect x="116" y="0" width="36" height="18" class="tag-bg" />
-      <text x="134" y="12" class="tag-text" text-anchor="middle">IoT</text>
+      <rect x="102" y="0" width="64" height="18" class="tag-bg" />
+      <text x="134" y="12" class="tag-text" text-anchor="middle">Embedded</text>
 
-      <g transform="translate(372, 12)">
-        <text x="0" y="0" class="star-text">⭐ 3</text>
+      <g transform="translate(375, 12)">
+        <text x="0" y="0" class="star-text">⭐ 1</text>
       </g>
     </g>
   </g>
 
-  <!-- 4. Bottom-Right: Audio & DSP Processing -->
+  <!-- 4. Bottom-Right: MicFix Module -->
   <g transform="translate(472, 146)">
     <rect x="0" y="0" width="424" height="88" class="subcard" />
     <rect x="12" y="14" width="30" height="30" rx="6" fill="#2E1538" stroke="#5B2273" stroke-width="1" />
     <text x="27" y="33" font-size="14" text-anchor="middle">🎧</text>
 
-    <text x="50" y="27" class="proj-title">Audio &amp; DSP Processing</text>
-    <text x="50" y="44" class="proj-desc">Acoustic Processing &amp; Audio Routing</text>
+    <text x="50" y="27" class="proj-title">MicFix Audio Module</text>
+    <text x="50" y="44" class="proj-desc">Zero-CPU audio routing &amp; mic clarity for rooted Android</text>
 
     <g transform="translate(12, 60)">
-      <rect x="0" y="0" width="40" height="18" class="tag-bg" />
-      <text x="20" y="12" class="tag-text" text-anchor="middle">DSP</text>
+      <rect x="0" y="0" width="42" height="18" class="tag-bg" />
+      <text x="21" y="12" class="tag-text" text-anchor="middle">Shell</text>
 
-      <rect x="44" y="0" width="46" height="18" class="tag-bg" />
-      <text x="67" y="12" class="tag-text" text-anchor="middle">ALSA</text>
+      <rect x="46" y="0" width="62" height="18" class="tag-bg" />
+      <text x="77" y="12" class="tag-text" text-anchor="middle">KernelSU</text>
 
-      <rect x="94" y="0" width="86" height="18" class="tag-bg" />
-      <text x="137" y="12" class="tag-text" text-anchor="middle">Noise Filtering</text>
+      <rect x="112" y="0" width="44" height="18" class="tag-bg" />
+      <text x="134" y="12" class="tag-text" text-anchor="middle">Audio</text>
 
       <g transform="translate(372, 12)">
         <text x="0" y="0" class="star-text">⭐ 2</text>

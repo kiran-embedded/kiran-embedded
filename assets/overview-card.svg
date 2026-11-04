@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 220" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 216" width="100%" height="100%">
   <defs>
     <!-- Border Gradient -->
     <linearGradient id="cardBorder" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -9,7 +9,7 @@
 
     <!-- Top Left Accent Glow -->
     <radialGradient id="topGlow" cx="0%" cy="0%" r="60%">
-      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.1" />
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.08" />
       <stop offset="100%" stop-color="#0B0E1E" stop-opacity="0" />
     </radialGradient>
   </defs>
@@ -43,7 +43,7 @@
     .bullet-desc {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 11px;
-      fill: #CBD5E1;
+      fill: #E2E8F0;
     }
     .icon-badge {
       fill: #1A1538;
@@ -53,69 +53,59 @@
   </style>
 
   <!-- Card Background -->
-  <rect x="2" y="2" width="916" height="216" class="card-bg" />
-  <rect x="2" y="2" width="916" height="216" rx="12" fill="url(#topGlow)" />
+  <rect x="2" y="2" width="916" height="212" class="card-bg" />
+  <rect x="2" y="2" width="916" height="212" rx="12" fill="url(#topGlow)" />
 
   <!-- Header -->
   <g transform="translate(24, 28)">
-    <!-- Purple Header Icon Pill -->
     <rect x="0" y="-12" width="24" height="24" rx="6" fill="#1E163B" stroke="#8B5CF6" stroke-width="1.2" />
     <path d="M 13 -6 L 9 0 L 14 0 L 11 6" fill="none" stroke="#C084FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
     <text x="34" y="5" class="head-title">Overview</text>
-    <!-- Info Icon right side -->
     <circle cx="866" cy="0" r="7.5" fill="none" stroke="#475569" stroke-width="1.2" />
     <text x="866" y="3.5" font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#64748B" text-anchor="middle">i</text>
   </g>
 
   <!-- Intro Line -->
-  <text x="24" y="58" class="intro-text">I design and build low-level systems spanning Linux kernel drivers, microcontroller firmware, and cross-platform client interfaces.</text>
+  <text x="24" y="56" class="intro-text">Low-level systems and embedded software across Linux kernel drivers, microcontroller firmware, and Flutter applications.</text>
 
-  <!-- 4 Bullets -->
-  <!-- 1. Kernel Engineering -->
-  <g transform="translate(24, 82)">
+  <!-- 4 Bullets: Real Projects Only -->
+  <!-- 1. AETHER Kernel -->
+  <g transform="translate(24, 80)">
     <circle cx="9" cy="0" r="9" class="icon-badge" />
     <text x="9" y="3.5" font-size="10" text-anchor="middle">🐧</text>
     <text x="26" y="3.5">
-      <tspan class="bullet-title">Kernel Engineering:</tspan>
-      <tspan class="bullet-desc"> Author and maintainer of </tspan>
-      <tspan font-weight="700" fill="#A855F7">AETHER Kernel</tspan>
-      <tspan class="bullet-desc"> for Qualcomm SM6150 (Snapdragon 678), implementing hardware AMOLED DC Dimming, Sunlight HBM, AOD backlight clamping, and system optimizations.</tspan>
+      <tspan class="bullet-title">AETHER Kernel:</tspan>
+      <tspan class="bullet-desc"> Linux 4.14 kernel for Xiaomi Redmi Note 10 (</tspan><tspan font-weight="600" fill="#38BDF8">mojito</tspan><tspan class="bullet-desc"> / SM6150) featuring hardware AMOLED DC Dimming, Sunlight HBM, and BadUSB data cutoff.</tspan>
     </text>
   </g>
 
-  <!-- 2. Embedded & Microcontrollers -->
-  <g transform="translate(24, 114)">
+  <!-- 2. ESP32 & Arduino Uno -->
+  <g transform="translate(24, 110)">
     <circle cx="9" cy="0" r="9" class="icon-badge" />
     <text x="9" y="3.5" font-size="10" text-anchor="middle">🔌</text>
     <text x="26" y="3.5">
-      <tspan class="bullet-title">Embedded &amp; Microcontrollers:</tspan>
-      <tspan class="bullet-desc"> Firmware development for </tspan>
-      <tspan font-weight="700" fill="#38BDF8">ESP32</tspan><tspan class="bullet-desc">, </tspan>
-      <tspan font-weight="700" fill="#38BDF8">Arduino Uno</tspan><tspan class="bullet-desc">, and </tspan>
-      <tspan font-weight="700" fill="#38BDF8">ARM Cortex</tspan>
-      <tspan class="bullet-desc"> platforms with FreeRTOS tasks, power management, and communication buses (I2C, SPI, UART).</tspan>
+      <tspan class="bullet-title">ESP32 &amp; Arduino Uno (Nebula OS):</tspan>
+      <tspan class="bullet-desc"> Microcontroller firmware with adaptive thermal management, hardware watchdogs, and Firebase IoT smart lighting.</tspan>
     </text>
   </g>
 
-  <!-- 3. Mobile & Dashboard Development -->
-  <g transform="translate(24, 146)">
+  <!-- 3. Flutter & Dart Apps -->
+  <g transform="translate(24, 140)">
     <circle cx="9" cy="0" r="9" class="icon-badge" />
     <text x="9" y="3.5" font-size="10" text-anchor="middle">📱</text>
     <text x="26" y="3.5">
-      <tspan class="bullet-title">Mobile &amp; Dashboard Development:</tspan>
-      <tspan class="bullet-desc"> </tspan>
-      <tspan font-weight="700" fill="#38BDF8">Flutter</tspan>
-      <tspan class="bullet-desc"> and Dart-based control interfaces with native Android system services for telemetry and real-time dashboards.</tspan>
+      <tspan class="bullet-title">Flutter &amp; Dart Apps (VowNote / Aurexa):</tspan>
+      <tspan class="bullet-desc"> Mobile client dashboards with biometric security, dynamic Material You theming, and real-time cloud sync.</tspan>
     </text>
   </g>
 
-  <!-- 4. Acoustic & Audio DSP -->
-  <g transform="translate(24, 178)">
+  <!-- 4. MicFix & Audio Routing -->
+  <g transform="translate(24, 170)">
     <circle cx="9" cy="0" r="9" class="icon-badge" />
     <text x="9" y="3.5" font-size="10" text-anchor="middle">🎧</text>
     <text x="26" y="3.5">
-      <tspan class="bullet-title">Acoustic &amp; Audio DSP:</tspan>
-      <tspan class="bullet-desc"> Microphone noise filtering, hardware unmute ramp tuning, and direct ALSA routing to deliver clean audio signal paths.</tspan>
+      <tspan class="bullet-title">MicFix &amp; Audio Routing:</tspan>
+      <tspan class="bullet-desc"> Event-driven KernelSU / Magisk audio module for hardware microphone re-initialization and real-time voice clarity.</tspan>
     </text>
   </g>
 </svg>
