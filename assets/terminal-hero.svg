@@ -2,31 +2,80 @@
   <defs>
     <!-- Border Gradient: Neon Purple to Electric Cyan -->
     <linearGradient id="termBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="0%" stop-color="#A855F7">
+        <animate attributeName="stop-color" values="#A855F7;#00E5FF;#A855F7" dur="8s" repeatCount="indefinite" />
+      </stop>
       <stop offset="50%" stop-color="#6366F1" />
-      <stop offset="100%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#00E5FF">
+        <animate attributeName="stop-color" values="#00E5FF;#A855F7;#00E5FF" dur="8s" repeatCount="indefinite" />
+      </stop>
     </linearGradient>
 
-    <!-- Terminal Subtle Glow -->
-    <filter id="termGlow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#8B5CF6" flood-opacity="0.25" />
+    <!-- AETHER Neon Phosphor Gradient -->
+    <linearGradient id="aetherNeonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#70FF9C" />
+      <stop offset="40%" stop-color="#00FF66" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Scanning Laser Gradient -->
+    <linearGradient id="scanLaserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF66" stop-opacity="0" />
+      <stop offset="30%" stop-color="#70FF9C" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="1" />
+      <stop offset="70%" stop-color="#00FF66" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#00FF66" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- PCB Grid Pattern -->
+    <pattern id="hudGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#00FF66" stroke-width="0.6" opacity="0.1" />
+    </pattern>
+
+    <!-- Laser Glow Filter -->
+    <filter id="laserGlow" x="-20%" y="-100%" width="140%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
     </filter>
   </defs>
 
   <style>
+    @keyframes termBorderPulse {
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.4)); }
+      50% { filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.55)); }
+    }
+    @keyframes aetherGlowPulse {
+      0%, 100% { filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.65)) drop-shadow(0 0 18px rgba(0, 255, 102, 0.35)); }
+      50% { filter: drop-shadow(0 0 14px rgba(0, 255, 102, 0.9)) drop-shadow(0 0 28px rgba(0, 255, 102, 0.5)); }
+    }
+    @keyframes laserSweep {
+      0% { transform: translateY(-4px); opacity: 0; }
+      15% { opacity: 0.95; }
+      85% { opacity: 0.95; }
+      100% { transform: translateY(56px); opacity: 0; }
+    }
     @keyframes blinkCursor {
       0%, 49% { opacity: 1; }
       50%, 100% { opacity: 0; }
     }
     @keyframes pulseActiveGreen {
-      0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px #00FF66); }
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px #00FF66); }
       50% { opacity: 0.35; filter: none; }
     }
+    @keyframes hudPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; filter: drop-shadow(0 0 4px #00E5FF); }
+    }
+
     .term-window {
       fill: #080B18;
       stroke: url(#termBorderGrad);
-      stroke-width: 1.5;
+      stroke-width: 1.6;
       rx: 12px;
+      animation: termBorderPulse 6s ease-in-out infinite;
     }
     .term-title {
       font-family: 'Fira Code', 'SF Mono', monospace;
@@ -35,19 +84,30 @@
       fill: #94A3B8;
       letter-spacing: 0.5px;
     }
-    .ascii-text {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 10px;
-      font-weight: 700;
-      fill: #00FF66;
-      letter-spacing: 0px;
+    .aether-vector-logo {
+      fill: url(#aetherNeonGrad);
+      stroke: #70FF9C;
+      stroke-width: 1.2;
+      animation: aetherGlowPulse 4s ease-in-out infinite;
     }
     .term-sub {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 10px;
       font-weight: 700;
       fill: #00FF66;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
+    }
+    .hud-bracket {
+      fill: none;
+      stroke: #00E5FF;
+      stroke-width: 1.5;
+      animation: hudPulse 3s ease-in-out infinite;
+    }
+    .info-panel {
+      fill: #0B0E20;
+      stroke: #182240;
+      stroke-width: 1;
+      rx: 8px;
     }
     .info-label {
       font-family: 'Fira Code', 'SF Mono', monospace;
@@ -79,8 +139,8 @@
     }
   </style>
 
-  <!-- Terminal Window Background & Border -->
-  <rect x="3" y="3" width="914" height="224" class="term-window" filter="url(#termGlow)" />
+  <!-- Terminal Window Background & Animated Border -->
+  <rect x="3" y="3" width="914" height="224" class="term-window" />
 
   <!-- Top Title Bar -->
   <g transform="translate(18, 18)">
@@ -92,49 +152,87 @@
 
   <line x1="4" y1="34" x2="916" y2="34" stroke="#161D36" stroke-width="1" />
 
-  <!-- Left: ASCII Matrix Green Logo (Sharp, No Blurring) -->
-  <g transform="translate(24, 46)">
-    <text x="0" y="15" class="ascii-text"> █████╗ ███████╗████████╗██╗  ██╗███████╗██████╗ </text>
-    <text x="0" y="27" class="ascii-text">██╔══██╗██╔════╝╚══██╔══╝██║  ██║██╔════╝██╔══██╗</text>
-    <text x="0" y="39" class="ascii-text">███████║█████╗     ██║   ███████║█████╗  ██████╔╝</text>
-    <text x="0" y="51" class="ascii-text">██╔══██║██╔══╝     ██║   ██╔══██║██╔══╝  ██╔══██╗</text>
-    <text x="0" y="63" class="ascii-text">██║  ██║███████╗   ██║   ██║  ██║███████╗██║  ██║</text>
-    <text x="0" y="75" class="ascii-text">╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝</text>
-    <text x="2" y="96" class="term-sub">KIRAN EMBEDDED // LOW-LEVEL SYSTEMS LAB</text>
+  <!-- Left: Precision Vector AETHER Logo with Animated Scanning Laser -->
+  <g transform="translate(42, 54)">
+    <!-- HUD Micro-Grid Backdrop -->
+    <rect x="-16" y="-8" width="354" height="66" fill="url(#hudGrid)" rx="6" />
+
+    <!-- Corner HUD Targeting Brackets -->
+    <path d="M -12 2 L -12 -6 L -4 -6" class="hud-bracket" />
+    <path d="M 330 -6 L 338 -6 L 338 2" class="hud-bracket" />
+    <path d="M -12 48 L -12 56 L -4 56" class="hud-bracket" />
+    <path d="M 330 56 L 338 56 L 338 48" class="hud-bracket" />
+
+    <!-- Pure Precision Vector Glyphs for A E T H E R (No ASCII dependence) -->
+    <!-- Letter A -->
+    <path d="M 0,50 L 15,0 L 27,0 L 42,50 L 32,50 L 27,32 L 15,32 L 10,50 Z M 17,23 L 25,23 L 21,10 Z" class="aether-vector-logo" />
+
+    <!-- Letter E -->
+    <path d="M 56,0 L 98,0 L 98,10 L 68,10 L 68,20 L 93,20 L 93,30 L 68,30 L 68,40 L 98,40 L 98,50 L 56,50 Z" class="aether-vector-logo" />
+
+    <!-- Letter T -->
+    <path d="M 112,0 L 154,0 L 154,10 L 139,10 L 139,50 L 127,50 L 127,10 L 112,10 Z" class="aether-vector-logo" />
+
+    <!-- Letter H -->
+    <path d="M 168,0 L 180,0 L 180,20 L 198,20 L 198,0 L 210,0 L 210,50 L 198,50 L 198,30 L 180,30 L 180,50 L 168,50 Z" class="aether-vector-logo" />
+
+    <!-- Letter E -->
+    <path d="M 224,0 L 266,0 L 266,10 L 236,10 L 236,20 L 261,20 L 261,30 L 236,30 L 236,40 L 266,40 L 266,50 L 224,50 Z" class="aether-vector-logo" />
+
+    <!-- Letter R -->
+    <path d="M 280,0 L 312,0 C 319,0 322,3 322,9 L 322,19 C 322,25 318,28 310,29 L 322,50 L 309,50 L 299,30 L 292,30 L 292,50 L 280,50 Z M 292,10 L 292,20 L 309,20 C 311,20 312,19 312,17 L 312,13 C 312,11 311,10 309,10 Z" class="aether-vector-logo" />
+
+    <!-- Animated Holographic Scanning Beam -->
+    <g style="animation: laserSweep 3s ease-in-out infinite;">
+      <line x1="-12" y1="0" x2="334" y2="0" stroke="url(#scanLaserGrad)" stroke-width="2.5" filter="url(#laserGlow)" />
+    </g>
+
+    <!-- Subtitle with Pulsing Diode -->
+    <g transform="translate(0, 80)">
+      <circle cx="4" cy="-4" r="3" fill="#00FF66" style="animation: pulseActiveGreen 1.8s infinite;" />
+      <text x="14" y="0" class="term-sub">KIRAN EMBEDDED // LOW-LEVEL SYSTEMS LAB</text>
+      <!-- Enclosed Chip Tag -->
+      <rect x="238" y="-11" width="86" height="15" rx="3.5" fill="#0E241A" stroke="#00FF66" stroke-width="0.8" />
+      <text x="281" y="0" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" fill="#70FF9C" text-anchor="middle">SM6150 // RING-0</text>
+    </g>
   </g>
 
-  <!-- Right: System Info Telemetry -->
-  <g transform="translate(530, 60)">
-    <!-- Row 1: Kernel -->
-    <g transform="translate(0, 0)">
-      <circle cx="8" cy="0" r="2.5" fill="#00FF66" />
-      <text x="20" y="4" class="info-label">Kernel</text>
-      <text x="86" y="4" class="info-label">:</text>
-      <text x="104" y="4" class="info-val">AETHER v1.8 (SM6150)</text>
-    </g>
+  <!-- Right: System Info Telemetry Panel -->
+  <g transform="translate(485, 48)">
+    <rect x="0" y="0" width="395" height="110" class="info-panel" />
 
-    <!-- Row 2: Firmware -->
-    <g transform="translate(0, 24)">
-      <circle cx="8" cy="0" r="2.5" fill="#00FF66" />
-      <text x="20" y="4" class="info-label">Firmware</text>
-      <text x="86" y="4" class="info-label">:</text>
-      <text x="104" y="4" class="info-val">ESP32 • Arduino Uno (Nebula)</text>
-    </g>
+    <g transform="translate(24, 22)">
+      <!-- Row 1: Kernel -->
+      <g transform="translate(0, 0)">
+        <circle cx="8" cy="0" r="2.5" fill="#00FF66" />
+        <text x="20" y="4" class="info-label">Kernel</text>
+        <text x="86" y="4" class="info-label">:</text>
+        <text x="104" y="4" class="info-val">AETHER v1.8 (SM6150 / mojito)</text>
+      </g>
 
-    <!-- Row 3: Client -->
-    <g transform="translate(0, 48)">
-      <circle cx="8" cy="0" r="2.5" fill="#00FF66" />
-      <text x="20" y="4" class="info-label">Apps</text>
-      <text x="86" y="4" class="info-label">:</text>
-      <text x="104" y="4" class="info-val">Flutter • Dart • Firebase</text>
-    </g>
+      <!-- Row 2: Firmware -->
+      <g transform="translate(0, 22)">
+        <circle cx="8" cy="0" r="2.5" fill="#00FF66" />
+        <text x="20" y="4" class="info-label">Firmware</text>
+        <text x="86" y="4" class="info-label">:</text>
+        <text x="104" y="4" class="info-val">ESP32 • Arduino Uno (Nebula OS)</text>
+      </g>
 
-    <!-- Row 4: Status -->
-    <g transform="translate(0, 72)">
-      <circle cx="8" cy="0" r="4" fill="#00FF66" style="animation: pulseActiveGreen 2s ease-in-out infinite;" />
-      <text x="20" y="4" class="info-label">Status</text>
-      <text x="86" y="4" class="info-label">:</text>
-      <text x="104" y="4" class="info-active">● Active</text>
+      <!-- Row 3: Apps -->
+      <g transform="translate(0, 44)">
+        <circle cx="8" cy="0" r="2.5" fill="#00FF66" />
+        <text x="20" y="4" class="info-label">Client</text>
+        <text x="86" y="4" class="info-label">:</text>
+        <text x="104" y="4" class="info-val">Flutter • Dart • Firebase</text>
+      </g>
+
+      <!-- Row 4: Status -->
+      <g transform="translate(0, 66)">
+        <circle cx="8" cy="0" r="4" fill="#00FF66" style="animation: pulseActiveGreen 2s ease-in-out infinite;" />
+        <text x="20" y="4" class="info-label">Status</text>
+        <text x="86" y="4" class="info-label">:</text>
+        <text x="104" y="4" class="info-active">● Active (Production Clean)</text>
+      </g>
     </g>
   </g>
 
